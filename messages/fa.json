@@ -1,6 +1,6 @@
 {
-  "Common": { "signIn": "ورود" },
   "signIn": "ورود",
+  "signinText": "ورود به سامانه با ایمیل و رمزعبور",
   "signOut": "خروج",
   "email": "ایمیل",
   "password": "رمز عبور",

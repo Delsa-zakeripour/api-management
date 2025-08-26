@@ -35,11 +35,11 @@ export default function SignInPage() {
       onSubmit={handleSubmit}
       className="space-y-4 p-8 max-w-md mx-auto mt-auto"
     >
-      <div className="bg-white shadow-lg rounded-md p-9 m-1">
-        <h2 className="text-xl font-bold m-1">{t("signIn")}</h2>
+      <div className="w-full max-w-600 min-h-80 bg-white dark:bg-[#262626] dark:shadow-xl/30 shadow-lg rounded-md p-9 m-1">
+        <h2 className="text-sm text-gray-500 mr-11">{t("signinText")}</h2>
         {error && <p className="text-red-500">{error}</p>}
         <div className="m-2 w-full">
-          <label className="my-2" htmlFor="email">
+          <label className="" htmlFor="email">
             {t("email")}:
           </label>
           <input
@@ -52,7 +52,7 @@ export default function SignInPage() {
           />
         </div>
         <div className="m-2 w-full">
-          <label className="my-2" htmlFor="password">
+          <label className="mt-2" htmlFor="password">
             {" "}
             {t("password")}:
           </label>
@@ -69,7 +69,7 @@ export default function SignInPage() {
           type="submit"
           className="w-full bg-blue-900 text-white p-2 rounded m-2"
         >
-          Sign In
+          {t("signIn")}
         </button>
       </div>
     </form>

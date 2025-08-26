@@ -21,17 +21,20 @@ export function AuthActions() {
   }
 
   return (
-    <div>
-      <p className="text-lg">
-        {t("welcome")} {session.user?.name} 🎉
-      </p>
-
-      <button
-        onClick={() => signOut({ callbackUrl: `/${locale}` })}
-        className="px-4 py-2 rounded-lg bg-red-500 text-white m-4"
-      >
-        {t("signOut")}
-      </button>
-    </div>
+    <>
+      <div className="flex justify-end">
+        <p className="text-lg text-center mt-9">
+          {t("welcome")} {session.user?.name} 🎉
+        </p>
+      </div>
+      <div className="">
+        <button
+          onClick={() => signOut({ callbackUrl: `/` })}
+          className="px-4 py-2 rounded-lg bg-red-500 text-white m-1"
+        >
+          {t("signOut")}
+        </button>
+      </div>
+    </>
   );
 }

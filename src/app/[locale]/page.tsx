@@ -4,6 +4,7 @@ import { AuthActions } from "@/components/ui/AuthActions";
 import { getTranslations } from "next-intl/server"; // ✅ use server API
 // import Image from "next/image";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import ThemeToggle from "@/components/ui/theme-toggle";
 
 export default async function Home() {
   const session = await getServerSession(authOption);
@@ -13,8 +14,9 @@ export default async function Home() {
   return (
     <>
       <div className="flex flex-end m-5 ml-9 justify-between">
-        <div>
+        <div className="flex gap-4 justify-center">
           <LanguageSwitcher />
+          <ThemeToggle />
         </div>
         <AuthActions />
       </div>

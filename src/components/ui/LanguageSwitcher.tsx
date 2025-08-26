@@ -8,7 +8,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { EarthIcon } from "lucide-react";
+import { GlobeIcon } from "lucide-react";
+import { Button } from "./button";
 
 export function LanguageSwitcher() {
   const router = useRouter();
@@ -30,11 +31,14 @@ export function LanguageSwitcher() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <div>
-          <span>
-            <EarthIcon />
-          </span>
-        </div>
+        <Button
+          className="w-9 h-9"
+          variant="ghost"
+          size="icon"
+          aria-label="Select language"
+        >
+          <GlobeIcon />
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-40">
         <DropdownMenuItem onClick={() => navigateToLocale("en")}>

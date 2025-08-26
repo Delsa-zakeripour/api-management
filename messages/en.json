@@ -1,6 +1,6 @@
 {
-  "Common": { "signIn": "Sign In" },
   "signIn": "Sign In",
+  "signinText": "Sign in with Email and Password",
   "signOut": "Sign Out",
   "email": "email",
   "password": "password",
