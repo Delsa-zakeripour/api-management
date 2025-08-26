@@ -1,0 +1,8 @@
+{
+  "Common": { "signIn": "ورود" },
+  "signIn": "ورود",
+  "signOut": "خروج",
+  "email": "ایمیل",
+  "password": "رمز عبور",
+  "welcome": "خوش آمدید"
+}
