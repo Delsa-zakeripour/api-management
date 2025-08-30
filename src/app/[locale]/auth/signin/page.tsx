@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useLocale } from "next-intl";
 import { useTranslations } from "next-intl";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function SignInPage() {
   const router = useRouter();
@@ -12,14 +13,26 @@ export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
   const t = useTranslations();
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!siteKey) {
+      setError("reCAPTCHA is not configured");
+      return;
+    }
+    if (!recaptchaToken) {
+      setError("Please complete the reCAPTCHA");
+      return;
+    }
+
     const res = await signIn("credentials", {
       email,
       password,
+      recaptchaToken,
       redirect: false,
     });
 
@@ -65,6 +78,15 @@ export default function SignInPage() {
             className="w-full border p-2 rounded"
           />
         </div>
+        {siteKey && (
+          <div className="m-2 w-full">
+            <ReCAPTCHA
+              sitekey={siteKey}
+              onChange={(token) => setRecaptchaToken(token)}
+              onExpired={() => setRecaptchaToken(null)}
+            />
+          </div>
+        )}
         <button
           type="submit"
           className="w-full bg-blue-900 text-white p-2 rounded m-2"
